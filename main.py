@@ -83,7 +83,7 @@ Com base nas análises históricas e nas tendências atuais, espera-se que o Bit
 
 # Criar a dashboard no Streamlit
 st.set_page_config(layout="wide", initial_sidebar_state="expanded")
-st.title('Análise de Criptomoedas (2018-2023)')
+st.title('Análise de Criptomoedas (2018-2023) 💸')
 
 # Mostrar resultados dos cálculos
 with st.container():
