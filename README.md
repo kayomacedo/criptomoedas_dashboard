@@ -1,4 +1,4 @@
-https://kayomacedo-criptomoedas-dashboard-main-ma454m.streamlit.app/
+https://kayomacedo-criptomoedas-dashboard-main-ma454m.streamlit.app/  (Projeto Online 🟢)
 
 ## Explicação das Funções Pandas no Código
 
