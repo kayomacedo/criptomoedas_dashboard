@@ -12,7 +12,7 @@ pd.read_csv: Carrega os dados de um arquivo CSV para um DataFrame do pandas.
 index_col='Date': Define a coluna 'Date' como o índice do DataFrame para facilitar operações baseadas em datas.
 parse_dates=True: Converte a coluna 'Date' para o formato datetime, permitindo operações de data e hora.
 ```
-###Calculando o Crescimento Total para Cada Moeda
+### Calculando o Crescimento Total para Cada Moeda
 
 ```python
 btc_total_growth = bitcoin_df['Close'].pct_change().sum() * 100
@@ -24,7 +24,7 @@ pct_change(): Calcula a mudança percentual entre os preços de fechamento conse
 sum(): Soma todas as mudanças percentuais para obter o crescimento total ao longo do período.
 * 100: Converte a mudança de proporção para uma porcentagem.
 ```
-###Calculando o Crescimento Percentual no Último Ano
+### Calculando o Crescimento Percentual no Último Ano
 
 ```python
 btc_recent_growth = bitcoin_df['Close'].pct_change(periods=365).iloc[-1] * 100
@@ -37,7 +37,7 @@ pct_change(periods=365): Calcula a mudança percentual ao longo de 365 dias.
 iloc[-1]: Seleciona a última entrada do DataFrame para obter a mudança percentual mais recente.
 * 100: Converte a mudança de proporção para uma porcentagem.
 ```
-###Calculando a Volatilidade Anual
+### Calculando a Volatilidade Anual
 
 ```python
 btc_annual_growth = bitcoin_df['Close'].resample('Y').ffill().pct_change() * 100
@@ -50,7 +50,7 @@ ffill(): Preenche os valores ausentes propagando para frente.
 pct_change(): Calcula a mudança percentual anual.
 * 100: Converte a mudança de proporção para uma porcentagem.
 ```
-###Calculando a Volatilidade (Desvio Padrão)
+### Calculando a Volatilidade (Desvio Padrão)
 
 ```python
 btc_volatility = btc_annual_growth.std()
@@ -60,13 +60,13 @@ doge_volatility = doge_annual_growth.std()
 ```
 std(): Calcula o desvio padrão da série de dados, que representa a volatilidade dos retornos anuais.
 ```
-###Encontrando o Ano de Maior Crescimento
+### Encontrando o Ano de Maior Crescimento
 
 ```
 idxmax().year: Retorna o ano da entrada máxima na série.
 .max(): Retorna o valor máximo da série.
 ```
-##Calculando a Correlação entre as Criptomoedas
+## Calculando a Correlação entre as Criptomoedas
 
 ```python
 crypto_corr = pd.concat([bitcoin_df['Close'], ethereum_df['Close'], dogecoin_df['Close']], axis=1)
