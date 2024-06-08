@@ -2,15 +2,16 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 # Carregar os dados dos CSVs a partir do caminho especificado
 bitcoin_df = pd.read_csv('src/datas/bitcoin_2018_2023.csv', index_col='Date', parse_dates=True)
 ethereum_df = pd.read_csv('src/datas/ethereum_2018_2023.csv', index_col='Date', parse_dates=True)
 dogecoin_df = pd.read_csv('src/datas/dogecoin_2018_2023.csv', index_col='Date', parse_dates=True)
 
-dogcoin_color = "#00ffff"
-bitcoin_color ="#ecec53"
-eth_color= "#00fa9a"
+dogcoin_color = "#1966AD"
+bitcoin_color ="#539ECD"
+eth_color= "#ecb653"
 
 # Lista de criptomoedas disponíveis
 crypto_list = ['Bitcoin', 'Ethereum', 'Dogecoin']
@@ -254,21 +255,27 @@ with st.container():
 
 
     with col3:
+  
+      # Exemplo de matriz de correlação (substitua pela sua matriz real)
+        cryptos = ['BTC', 'ETH', 'DOGE']
+        corr_matrix = pd.DataFrame(np.random.randn(3, 3), index=cryptos, columns=cryptos)
+
+        # Configurações do gráfico
         st.subheader('Correlação entre Criptomoedas')
         fig_corr, ax_corr = plt.subplots(figsize=(15, 6))
 
-        # Configurar o heatmap com anotações coloridas
-        sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1, ax=ax_corr, annot_kws={"color": "white"})
+        # Configurar o heatmap com anotações coloridas predominantemente azul
+        sns.heatmap(corr_matrix, annot=True, cmap='Blues', vmin=-1, vmax=1, ax=ax_corr, annot_kws={"color": "black"})
 
         # Ajustar o título do gráfico
-        ax_corr.set_title('Correlação entre Criptomoedas', color='white')
+        ax_corr.set_title('Correlação entre Criptomoedas', color='black')
 
-        # Mudar a cor de fundo do gráfico
-        fig_corr.patch.set_facecolor('#272530')
+        # Mudar a cor de fundo do gráfico para um tom claro
+        fig_corr.patch.set_facecolor('#F0F0F0')
 
         # Mudar as cores dos textos dos eixos
-        ax_corr.tick_params(axis='x', colors='white')
-        ax_corr.tick_params(axis='y', colors='white')
+        ax_corr.tick_params(axis='x', colors='black')
+        ax_corr.tick_params(axis='y', colors='black')
 
         # Mostrar o gráfico no Streamlit
         st.pyplot(fig_corr)
