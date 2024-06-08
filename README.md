@@ -10,6 +10,7 @@ dogecoin_df = pd.read_csv('src/datas/dogecoin_2018_2023.csv', index_col='Date', 
 pd.read_csv: Carrega os dados de um arquivo CSV para um DataFrame do pandas.
 index_col='Date': Define a coluna 'Date' como o índice do DataFrame para facilitar operações baseadas em datas.
 parse_dates=True: Converte a coluna 'Date' para o formato datetime, permitindo operações de data e hora.
+```
 Calculando o Crescimento Total para Cada Moeda
 
 btc_total_growth = bitcoin_df['Close'].pct_change().sum() * 100
